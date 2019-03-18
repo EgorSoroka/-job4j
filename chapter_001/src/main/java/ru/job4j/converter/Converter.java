@@ -26,13 +26,13 @@ public class Converter {
      * @return рубли.
      */
     public int dollarToRuble(int value) {
-        return 60 * 100 / value / 100;
+        return value * 60;
     }
      /**
      * @param value евро.
      * @return рубль.
      */
     public int euroToRuble(int value) {
-        return 70 * 100 / value / 100;
+        return value * 70;
     }
 }
