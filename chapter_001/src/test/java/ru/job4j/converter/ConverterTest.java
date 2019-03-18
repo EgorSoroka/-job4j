@@ -39,7 +39,6 @@ public class ConverterTest {
         int result = converter.dollarToRuble(1);
         assertThat(result, is(60));
     }
-
     /**
      * Тест перевода рублей в евро.
      */
