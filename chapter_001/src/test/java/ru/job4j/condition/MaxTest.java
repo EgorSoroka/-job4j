@@ -25,9 +25,19 @@ public class MaxTest {
      *  Тест при max == left.
      */
     @Test
-    public void whenMin1ToThen2() {
+    public void whenMax2ToThen1() {
         Max max = new Max();
         int result = max.max(3, 2);
         assertThat(result, is(3));
+    }
+
+    /**
+     * Тест при max == right, left.
+     */
+    @Test
+    public void when1EquallyTo2() {
+        Max equally = new Max();
+        int result = equally.max(4, 4);
+        assertThat(result, is(4));
     }
 }
