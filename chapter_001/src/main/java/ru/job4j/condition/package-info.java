@@ -1,5 +1,5 @@
 /**
- * Package for Point.
+ * Package for Point, Max, Triangle.
  *
  * @author Egor Soroka ( https://vk.com/id428714363)
  * @version 1.0

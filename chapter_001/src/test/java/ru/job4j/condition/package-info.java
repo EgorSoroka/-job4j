@@ -1,5 +1,5 @@
 /**
- * Package for Point test.
+ * Package for Point, Max, Triangle test.
  *
  * @author Egor Soroka ( https://vk.com/id428714363)
  * @version 1.0
