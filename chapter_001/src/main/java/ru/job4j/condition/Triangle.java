@@ -49,7 +49,7 @@ public class Triangle {
      * @return возможность построить треугольник.
      */
     private boolean exist(double a, double c, double b) {
-        return a < c + b || b < a + c || c < a + b;
+        return a < c + b && b < a + c && c < a + b;
     }
 
 }
