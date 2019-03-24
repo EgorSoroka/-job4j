@@ -10,19 +10,17 @@ package ru.job4j.loop;
 
 public class Counter {
     /**
-     *
      * @param start число.
      * @param finish число.
      * @return сумма чисел.
      */
     public int add(int start, int finish) {
         int sum = 0;
-        for (int x = 0; x <= finish; x++) {
-            start++;
-            if (start % 2 != 0) {
-                continue;
+        for (int x = start; x <= finish; x++) {
+            if (x % 2 == 0) {
+                sum = x + sum;
             }
-            sum = sum + start;
+
         }
         return sum;
     }
