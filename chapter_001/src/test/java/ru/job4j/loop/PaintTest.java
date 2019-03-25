@@ -24,4 +24,17 @@ public class PaintTest {
                                 .add("^^^^^^^")
                                 .toString()));
     }
+    @Test
+    public void whenPyramid3Right() {
+        Paint paint = new Paint();
+        String rst = paint.piramid(3);
+        System.out.println(rst);
+        assertThat(rst,
+                is(
+                        new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                                .add("  ^  ")
+                                .add(" ^^^ ")
+                                .add("^^^^^")
+                                .toString()));
+    }
 }
