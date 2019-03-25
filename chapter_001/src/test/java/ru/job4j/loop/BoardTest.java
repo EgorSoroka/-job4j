@@ -34,7 +34,7 @@ public class BoardTest {
        Board board = new Board();
        String result = board.paint(5, 4);
        final String line = System.getProperty("line.separator");
-       String expected = String.format("x x x%s x x %Sx x x%S x x %S",line, line, line, line);
+       String expected = String.format("x x x%s x x %Sx x x%S x x %S", line, line, line, line);
        assertThat(result, is(expected));
     }
 }
