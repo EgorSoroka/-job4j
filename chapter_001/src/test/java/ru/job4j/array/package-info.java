@@ -1,5 +1,5 @@
 /**
- * Package for Square test.
+ * Package for Square, FindLoop test.
  *
  * @author Egor Soroka ( https://vk.com/id428714363)
  * @version 1.0
