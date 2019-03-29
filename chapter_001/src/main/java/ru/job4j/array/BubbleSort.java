@@ -18,11 +18,12 @@ public class BubbleSort {
        while (!sort) {
            sort = true;
            for (int index = 0; index < array.length - 1; index++) {
-               if (array[index] > array[index + 1]) {
-                   sort = false;
-                   x = array[index];
-                   array[index] = array[index + 1];
-                   array[index + 1] = x;
+               for (int y = array.length - 1; y > index; y--) {
+                  if (array[y] < array[y - 1]){
+                  x = array[y];
+                  array[y] = array[y -1];
+                  array[y -1] = x;
+                  }
                }
            }
        }
