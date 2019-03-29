@@ -1,5 +1,5 @@
 /**
- * Package for Square, FindLoop, Turn, Check, BubbleSort, ArrayChar test.
+ * Package for Square, FindLoop, Turn, Check, BubbleSort, ArrayChar, Matrix test.
  *
  * @author Egor Soroka ( https://vk.com/id428714363)
  * @version 1.0
