@@ -13,10 +13,7 @@ public class BubbleSort {
      * @return отсортированный массив.
      */
     public int[] sort(int[] array) {
-       boolean sort = false;
        int x;
-       while (!sort) {
-           sort = true;
            for (int index = 0; index < array.length - 1; index++) {
                for (int y = array.length - 1; y > index; y--) {
                   if (array[y] < array[y - 1]) {
@@ -26,7 +23,7 @@ public class BubbleSort {
                   }
                }
            }
-       }
+
        return array;
     }
 }
