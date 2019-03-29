@@ -1,8 +1,5 @@
 package ru.job4j.array;
 
-
-import java.util.Arrays;
-
 /**
  *  Проверяет префикс.
  * @author Egor Soroka ( https://vk.com/id428714363)
@@ -27,13 +24,12 @@ public class ArrayChar {
      * @return если слово начинается с префикса
      */
     public boolean startWith(String prefix) {
-        boolean result = false;
-        char x = data[0];
-        char y = data[1];
-        char[] z = new char[] {x, y};
+        boolean result = true;
         char[] value = prefix.toCharArray();
-        if (Arrays.equals(z, value)) {
-            result = true;
+        for (int index = 0; index < value.length; index++) {
+            if (data[index] != value[index]) {
+                result = false;
+            }
         }
         return result;
     }

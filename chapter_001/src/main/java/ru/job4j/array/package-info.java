@@ -1,5 +1,5 @@
 /**
- * Package for Square, FindLoop, Turn, Check task.
+ * Package for Square, FindLoop, Turn, Check, BubbleSort, ArrayChar task.
  *
  * @author Egor Soroka ( https://vk.com/id428714363)
  * @version 1.0
