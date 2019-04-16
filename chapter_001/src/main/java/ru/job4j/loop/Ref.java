@@ -1,8 +1,10 @@
 package ru.job4j.loop;
 
 import java.util.function.BiPredicate;
+
 /**
- *  Рисует пирамиду.
+ * Рисует пирамиду.
+ *
  * @author Egor Soroka ( https://vk.com/id428714363)
  * @version 1.0
  * @since 25.03.2019
@@ -10,7 +12,6 @@ import java.util.function.BiPredicate;
 
 public class Ref {
     /**
-     *
      * @param height высота пирамиды.
      * @return правая часть пирамиды.
      */
@@ -23,7 +24,6 @@ public class Ref {
     }
 
     /**
-     *
      * @param height высота пирамиды.
      * @return левая часть пирамиды.
      */
@@ -36,7 +36,6 @@ public class Ref {
     }
 
     /**
-     *
      * @param height высота пирамиды.
      * @return пирамида.
      */
@@ -49,9 +48,8 @@ public class Ref {
     }
 
     /**
-     *
-     * @param height высота.
-     * @param widht ширина.
+     * @param height  высота.
+     * @param widht   ширина.
      * @param predict .
      * @return пирамида.
      */

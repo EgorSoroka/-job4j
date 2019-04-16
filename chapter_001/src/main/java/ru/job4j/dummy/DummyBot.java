@@ -1,16 +1,17 @@
 package ru.job4j.dummy;
 
 /**
- *  Глупый бот отвечает на вопросы.
+ * Глупый бот отвечает на вопросы.
+ *
  * @author Egor Soroka ( https://vk.com/id428714363)
  * @version 1.0
  * @since 20.03.2019
- *
  */
 
 public class DummyBot {
     /**
      * Отвечает на вопросы.
+     *
      * @param question Вопрос от клиента.
      * @return Ответ.
      */

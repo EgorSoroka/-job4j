@@ -10,7 +10,8 @@ package ru.job4j.calculator;
 public class Calculator {
     /**
      * Метод выводит сумму двух чисел.
-     * @param first число с плавающей точкой.
+     *
+     * @param first  число с плавающей точкой.
      * @param second число с плавающей точкой.
      * @return first + second
      */
@@ -20,7 +21,8 @@ public class Calculator {
 
     /**
      * Метод выводит разницу двух чисел.
-     * @param first число с плавающей точкой.
+     *
+     * @param first  число с плавающей точкой.
      * @param second число с плавающей точкой.
      * @return first - second
      */
@@ -29,18 +31,16 @@ public class Calculator {
     }
 
     /**
-     *
-     * @param first число с плавающей точкой.
+     * @param first  число с плавающей точкой.
      * @param second число с плавающей точкой.
      * @return first / second
      */
-    public  double div(double first, double second) {
+    public double div(double first, double second) {
         return first / second;
     }
 
     /**
-     *
-     * @param first число с плавающей точкой.
+     * @param first  число с плавающей точкой.
      * @param second число с плавающей точкой.
      * @return first * second
      */

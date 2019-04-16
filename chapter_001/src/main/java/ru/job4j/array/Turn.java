@@ -1,7 +1,8 @@
 package ru.job4j.array;
 
 /**
- *  Переворачивает массив
+ * Переворачивает массив
+ *
  * @author Egor Soroka ( https://vk.com/id428714363)
  * @version 1.0
  * @since 27.03.2019
@@ -9,9 +10,7 @@ package ru.job4j.array;
 
 public class Turn {
     /**
-     *
      * @param array массив.
-     * @return Перевернутый array.
      */
     public int[] back(int[] array) {
         int temp;

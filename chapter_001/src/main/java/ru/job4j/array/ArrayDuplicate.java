@@ -3,15 +3,14 @@ package ru.job4j.array;
 import java.util.Arrays;
 
 /**
- *  Удаление дубликатов в массиве.
+ * Удаление дубликатов в массиве.
+ *
  * @author Egor Soroka ( https://vk.com/id428714363)
  * @version 1.0
  * @since 30.03.2019
  */
-
 public class ArrayDuplicate {
     /**
-     *
      * @param array массив строк.
      * @return массив строк без дубликатов.
      */
