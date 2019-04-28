@@ -1,27 +1,35 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
+/**
+ * Test class Tracker.
+ *
+ * @author Egor Soroka ( https://vk.com/id428714363)
+ * @version 1.0
+ * @since 28.04.2019
+ */
+
 public class TrackerTest {
     @Test
-    public void testTrackerDelete(){
+    public void testTrackerDelete() {
         Tracker tracker = new Tracker();
-        Tracker expected = new Tracker();
         Item deleted = new Item("test1", "testDescription", 123L);
-        tracker.add(deleted);
         Item itemTwo = new Item("test2", "testDescription", 1234L);
         Item itemThree = new Item("test3", "testDescription", 12345L);
+        tracker.add(deleted);
         tracker.add(itemTwo);
         tracker.add(itemThree);
         tracker.delete(deleted.getId());
-        expected.add(itemTwo);
-        expected.add(itemThree);
-        assertThat(tracker.findAll(), is(expected));
-
-
+        Tracker result = new Tracker();
+        result.add(itemTwo);
+        result.add(itemThree);
+        assertThat(tracker.findAll(), is(result.findAll()));
     }
+
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
         Tracker tracker = new Tracker();
@@ -31,6 +39,7 @@ public class TrackerTest {
         Item result = tracker.findById(item.getId());
         assertThat(result.getName(), is(item.getName()));
     }
+
     @Test
     public void whenReplaceNameThenReturnNewName() {
         Tracker tracker = new Tracker();
@@ -47,4 +56,18 @@ public class TrackerTest {
         assertThat(tracker.findById(previous.getId()).getName(), is("test2"));
     }
 
+    @Test
+    public void testTrackerFindByName() {
+        Tracker tracker = new Tracker();
+        Item itemOne = new Item("test", "testDescription", 123L);
+        Item itemTwo = new Item("test", "testDescription", 1234L);
+        Item itemThree = new Item("test3", "testDescription", 12345L);
+        tracker.add(itemOne);
+        tracker.add(itemTwo);
+        tracker.add(itemThree);
+        Tracker result = new Tracker();
+        result.add(itemOne);
+        result.add(itemTwo);
+        assertThat(tracker.findByName("test"), is(result.findAll()));
+    }
 }
