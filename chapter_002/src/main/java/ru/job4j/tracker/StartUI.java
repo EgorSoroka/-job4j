@@ -1,5 +1,13 @@
 package ru.job4j.tracker;
 
+/**
+ *  Реализует пользовательский интерфейс.
+ *
+ * @author Egor Soroka ( https://vk.com/id428714363)
+ * @version 1.0
+ * @since 08.05.2019
+ */
+
 public class StartUI {
     /**
      * Константа меню для добавления новой заявки.
@@ -89,8 +97,8 @@ public class StartUI {
      */
     private void createItem() {
         System.out.println("------------ Добавление новой заявки --------------");
-        String name = this.input.ask("Введите имя заявки :");
-        String desc = this.input.ask("Введите описание заявки :");
+        String name = this.input.ask("------------ Введите имя заявки ------------ :");
+        String desc = this.input.ask("------------ Введите описание заявки ------------ :");
         long time = System.currentTimeMillis();
         Item item = new Item(name, desc, time);
         this.tracker.add(item);
@@ -111,11 +119,11 @@ public class StartUI {
      * Метод редактирует заявку.
      */
     private void editItem() {
-        System.out.println("   Редактирование заявки по ID   ");
-        String id = this.input.ask("Введите ID заявки");
-        System.out.println("   Редактирование заявки   ");
-        String name = this.input.ask("Введите имя заявки :");
-        String desc = this.input.ask("Введите описание заявки :");
+        System.out.println("------------ Редактирование заявки по ID ------------");
+        String id = this.input.ask("------------ Введите ID заявки ------------");
+        System.out.println("------------ Редактирование заявки ------------");
+        String name = this.input.ask("------------ Введите имя заявки ------------ :");
+        String desc = this.input.ask("------------ Введите описание заявки ------------ :");
         long time = System.currentTimeMillis();
         Item item = new Item(name, desc, time);
         this.tracker.replace(id, item);
@@ -126,24 +134,26 @@ public class StartUI {
      * Метод удаляет заявку.
      */
     private void deleteItem() {
-        System.out.println("   Удаление заявки   ");
-        String delete = this.input.ask("   Введите ID заявки   ");
-        this.tracker.delete(delete);
-        System.out.println("   Заявка удалена   ");
+        System.out.println("------------ Удаление заявки ------------");
+        String delete = this.input.ask("------------ Введите ID заявки ------------");
+        if (delete != null) {
+            this.tracker.delete(delete);
+            System.out.println(   "------------ Заявка удалена ------------");
+        } else System.out.println("------------ Заявка с таким ID не найдена ------------");
     }
 
     /**
      * Метод ищет заявку по ID.
      */
     private void findByID() {
-        System.out.println("Поиск по ID");
-        String id = this.input.ask("   Введите ID заявки   ");
+        System.out.println("------------ Поиск по ID ------------");
+        String id = this.input.ask("------------ Введите ID заявки ------------");
         Item found = this.tracker.findById(id);
         if (found != null) {
             System.out.println(String.format("Id: %s Имя: %s Описание: %s",
                     found.getId(), found.getName(), found.getDecs()));
         } else {
-            System.out.println("   Нет заявки с таким ID   ");
+            System.out.println("------------ Нет заявки с таким ID ------------");
         }
     }
 
@@ -151,8 +161,8 @@ public class StartUI {
      * Метод ищет заявку по имени.
      */
     private void findByName() {
-        System.out.println("   Поиск заявки по имени   ");
-        String name = this.input.ask("   Введите имя заявки   ");
+        System.out.println("------------ Поиск заявки по имени ------------");
+        String name = this.input.ask("------------ Введите имя заявки ------------");
         Item[] items = this.tracker.findByName(name);
         if (items.length > 0) {
             for (Item item : items) {
@@ -160,7 +170,7 @@ public class StartUI {
                         item.getId(), item.getName(), item.getDecs()));
             }
         } else {
-            System.out.println("   Заявок с таким именем не существует   ");
+            System.out.println("------------ Заявок с таким именем не существует ------------");
         }
 
     }
@@ -169,14 +179,14 @@ public class StartUI {
      * Метод отображает меню.
      */
     private void showMenu() {
-        System.out.println("   Меню.   ");
-        System.out.println("0 - создать новую заявку");
-        System.out.println("1 - показать все заявки");
-        System.out.println("2 - изменить заявку");
-        System.out.println("3 - удалить заявку");
-        System.out.println("4 - получить заявку по ID");
-        System.out.println("5 - получить все заявки по имени");
-        System.out.println("6 - Выход");
+        System.out.println("------------ Меню ------------");
+        System.out.println("------------ 0 - создать новую заявку");
+        System.out.println("------------ 1 - показать все заявки");
+        System.out.println("------------ 2 - изменить заявку");
+        System.out.println("------------ 3 - удалить заявку");
+        System.out.println("------------ 4 - получить заявку по ID");
+        System.out.println("------------ 5 - получить все заявки по имени");
+        System.out.println("------------ 6 - Выход");
     }
 
     /**
