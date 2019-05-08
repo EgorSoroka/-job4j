@@ -14,6 +14,7 @@ import static org.junit.Assert.assertThat;
  */
 
 public class TrackerTest {
+
     @Test
     public void testTrackerDelete() {
         Tracker tracker = new Tracker();
