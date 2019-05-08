@@ -128,7 +128,9 @@ public class StartUI {
         Item item = new Item(name, desc, time);
         if (this.tracker.replace(id, item)) {
             System.out.println("   Ваша заявка с getId : " + item.getId() + "   ");
-        } else System.out.println("------------ Ваша заявка не найдена ------------");
+        } else {
+            System.out.println("------------ Ваша заявка не найдена ------------");
+        }
     }
 
     /**
@@ -138,8 +140,10 @@ public class StartUI {
         System.out.println("------------ Удаление заявки ------------");
         String delete = this.input.ask("------------ Введите ID заявки ------------");
         if (this.tracker.delete(delete)) {
-            System.out.println(   "------------ Заявка удалена ------------");
-        } else System.out.println("------------ Заявка с таким ID не найдена ------------");
+            System.out.println("------------ Заявка удалена ------------");
+        } else {
+            System.out.println("------------ Заявка с таким ID не найдена ------------");
+        }
     }
 
     /**
