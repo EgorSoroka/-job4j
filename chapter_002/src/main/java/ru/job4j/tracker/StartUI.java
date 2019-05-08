@@ -126,8 +126,9 @@ public class StartUI {
         String desc = this.input.ask("------------ Введите описание заявки ------------ :");
         long time = System.currentTimeMillis();
         Item item = new Item(name, desc, time);
-        this.tracker.replace(id, item);
-        System.out.println("   Ваша заявка с getId : " + item.getId() + "   ");
+        if (this.tracker.replace(id, item)) {
+            System.out.println("   Ваша заявка с getId : " + item.getId() + "   ");
+        } else System.out.println("------------ Ваша заявка не найдена ------------");
     }
 
     /**
@@ -136,8 +137,7 @@ public class StartUI {
     private void deleteItem() {
         System.out.println("------------ Удаление заявки ------------");
         String delete = this.input.ask("------------ Введите ID заявки ------------");
-        if (delete != null) {
-            this.tracker.delete(delete);
+        if (this.tracker.delete(delete)) {
             System.out.println(   "------------ Заявка удалена ------------");
         } else System.out.println("------------ Заявка с таким ID не найдена ------------");
     }
