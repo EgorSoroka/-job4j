@@ -2,6 +2,7 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
+import java.lang.reflect.Array;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -37,14 +38,13 @@ public class StartUITest {
     @Test
     public void testDeleteItemStartUI() {
         Tracker tracker = new Tracker();
-        Item itemOne = tracker.add(new Item("test name1", "desc1", this.time()));
-        Item itemTwo = tracker.add(new Item("test name2", "desc2", this.time()));
-        Item itemThree = tracker.add(new Item("test name3", "desc3", this.time()));
-        Input input = new StubInput(new String[]{"3", itemThree.getId(), null, "удалил заявку", "6"});
-        new StartUI(input, tracker).init();
-        Tracker result = new Tracker();
-        result.add(itemOne);
-        result.add(itemTwo);
-        assertThat(tracker.findAll(), is(result.findAll()));
+        Item itemDelet = tracker.add(new Item("test name1", "desc1", this.time()));
+        Item [] items = {
+                tracker.add(new Item("test name2", "desc2", this.time())),
+                tracker.add(new Item("test name3", "desc3", this.time()))
+        };
+        tracker.delete(itemDelet.getId());
+        
+        assertThat(tracker.findAll(), is(items));
     }
 }

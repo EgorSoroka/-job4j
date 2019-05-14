@@ -9,7 +9,5 @@ public class Figures {
         this.shape = shape;
     }
 
-    public String figure(){
-        return shape.;
-    }
+
 }
