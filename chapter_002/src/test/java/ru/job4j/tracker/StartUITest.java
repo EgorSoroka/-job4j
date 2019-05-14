@@ -43,8 +43,8 @@ public class StartUITest {
                 tracker.add(new Item("test name2", "desc2", this.time())),
                 tracker.add(new Item("test name3", "desc3", this.time()))
         };
-        tracker.delete(itemDelet.getId());
-        
+        Input input = new StubInput(new String[]{"3", itemDelet.getId(), "6"});
+        new StartUI(input, tracker).init();
         assertThat(tracker.findAll(), is(items));
     }
 }
