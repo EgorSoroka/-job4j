@@ -19,7 +19,7 @@ public class Doctor {
      * @param pacient данные больного.
      * @return диагноз.
      */
-    public String diagnose(Pacient pacient){
+    public String diagnose(Pacient pacient) {
         String diagnose = "";
         return diagnose;
     }

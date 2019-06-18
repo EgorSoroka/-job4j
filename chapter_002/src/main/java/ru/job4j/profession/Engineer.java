@@ -16,7 +16,7 @@ public class Engineer extends Profession {
     /** Вроде у инженеров есть некое подобие разрядов, но это не точно)) */
     private String qualification;
 
-    public String getQualification(){
+    public String getQualification() {
         return qualification;
     }
 

@@ -21,7 +21,7 @@ public class PlanBuilding {
      * @param materials материлы на строительство.
      * @return озвращает стоимость материалов.
      */
-    public double costMaterials(double badge, double materials){
+    public double costMaterials(double badge, double materials) {
         double cost = 0;
         return  cost;
     }
@@ -30,7 +30,7 @@ public class PlanBuilding {
      * Рассчитывает ЗП работников
      * @return ЗП сотрудника.
      */
-    public double employeeSalary(){
+    public double employeeSalary() {
         double salary = 0;
         return salary;
     }
@@ -39,7 +39,7 @@ public class PlanBuilding {
      * Считает остаток бюджета после всех процедур.
      * @return остаток баланса.
      */
-    public double balance(){
+    public double balance() {
         double balance = 0;
         return balance;
     }
@@ -48,7 +48,7 @@ public class PlanBuilding {
      * Время строительства в зависимости от количества сотрудников.
      * @return время.
      */
-    public String time(){
+    public String time() {
         String time = "";
         return time;
     }

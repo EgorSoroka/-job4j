@@ -9,7 +9,7 @@ package ru.job4j.profession;
 
 public class EngineerBuilder extends  Engineer {
 
-    public String timeManagement(){
+    public String timeManagement() {
         PlanBuilding planA = new PlanBuilding();
         return planA.time();
     }

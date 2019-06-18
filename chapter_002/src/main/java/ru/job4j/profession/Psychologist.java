@@ -7,9 +7,9 @@ package ru.job4j.profession;
  *  @since 13.06.19
  */
 
-public class psychologist extends  Doctor {
+public class Psychologist extends  Doctor {
 
-    public String diagnose(Pacient pacient){
+    public String diagnose(Pacient pacient) {
         String diagnose = "";
         return diagnose;
     }
@@ -19,7 +19,7 @@ public class psychologist extends  Doctor {
      * @param pacient данные пациента
      * @return результат теста.
      */
-    public String testPacient(Pacient pacient){
+    public String testPacient(Pacient pacient) {
         String test = "";
         return test;
     }

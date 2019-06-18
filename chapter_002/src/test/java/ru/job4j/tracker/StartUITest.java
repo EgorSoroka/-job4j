@@ -39,7 +39,7 @@ public class StartUITest {
     public void testDeleteItemStartUI() {
         Tracker tracker = new Tracker();
         Item itemDelet = tracker.add(new Item("test name1", "desc1", this.time()));
-        Item [] items = {
+        Item[] items = {
                 tracker.add(new Item("test name2", "desc2", this.time())),
                 tracker.add(new Item("test name3", "desc3", this.time()))
         };

@@ -19,19 +19,19 @@ public class Pacient {
     /** Симптомы больного. */
     private String symptoms;
 
-    public String getName(){
+    public String getName() {
         return name;
     }
-    public int getAge(){
+    public int getAge() {
         return age;
     }
-    public double getHeight(){
+    public double getHeight() {
         return height;
     }
-    public double getWeight(){
+    public double getWeight() {
         return weight;
     }
-    public  String getSymptoms(){
+    public  String getSymptoms() {
         return symptoms;
     }
 }

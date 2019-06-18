@@ -22,22 +22,25 @@ public class Profession {
     private String timetable;
 
 
-    public double getStanding(){
+
+
+
+    public double getStanding() {
         return standing;
     }
-    public String getName(){
+    public String getName() {
         return name;
     }
-    public String getSurname(){
+    public String getSurname() {
         return surname;
     }
-    public String getEducation(){
+    public String getEducation() {
         return education;
     }
-    public double getSalary(){
+    public double getSalary() {
         return salary;
     }
-    public String getTimetable(){
+    public String getTimetable() {
         return timetable;
     }
 }
