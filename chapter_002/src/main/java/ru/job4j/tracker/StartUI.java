@@ -95,7 +95,7 @@ public class StartUI {
     /**
      * Метод реализует добавленяи новый заявки в хранилище.
      */
-    private void createItem() {
+    private void createItem() { // Тест написан.
         System.out.println("------------ Добавление новой заявки --------------");
         String name = this.input.ask("------------ Введите имя заявки ------------ :");
         String desc = this.input.ask("------------ Введите описание заявки ------------ :");
@@ -118,7 +118,7 @@ public class StartUI {
     /**
      * Метод редактирует заявку.
      */
-    private void editItem() {
+    private void editItem() { // Тест написан.
         System.out.println("------------ Редактирование заявки по ID ------------");
         String id = this.input.ask("------------ Введите ID заявки ------------");
         System.out.println("------------ Редактирование заявки ------------");
@@ -136,7 +136,7 @@ public class StartUI {
     /**
      * Метод удаляет заявку.
      */
-    private void deleteItem() {
+    private void deleteItem() { // тест написан.
         System.out.println("------------ Удаление заявки ------------");
         String delete = this.input.ask("------------ Введите ID заявки ------------");
         if (this.tracker.delete(delete)) {
