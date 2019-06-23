@@ -5,8 +5,6 @@ import org.junit.After;
 import org.junit.Before;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.Arrays;
-import java.util.StringJoiner;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -19,11 +17,11 @@ import static org.junit.Assert.assertThat;
  */
 public class StartUITest {
     private Tracker tracker = new Tracker();
-    // поле содержит дефолтный вывод в консоль.
+    /** поле содержит дефолтный вывод в консоль. */
     private final PrintStream stdout = System.out;
-    // буфер для результата.
+    /** буфер для результата. */
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
-
+    /** Генерация времени для Id. */
     private long time() {
         return System.currentTimeMillis();
     }
@@ -31,15 +29,16 @@ public class StartUITest {
     /**
      * Меню
      */
+    private final String is = System.lineSeparator();
     private final StringBuilder menu = new StringBuilder()
-            .append("------------ Меню ------------" + "\n")
-            .append("------------ 0 - создать новую заявку " + "\n")
-            .append("------------ 1 - показать все заявки " + "\n")
-            .append("------------ 2 - изменить заявку " + "\n")
-            .append("------------ 3 - удалить заявку " + "\n")
-            .append("------------ 4 - получить заявку по ID " + "\n")
-            .append("------------ 5 - получить все заявки по имени " + "\n")
-            .append("------------ 6 - Выход " + "\n");
+            .append("------------ Меню ------------").append(is)
+            .append("------------ 0 - создать новую заявку ").append(is)
+            .append("------------ 1 - показать все заявки ").append(is)
+            .append("------------ 2 - изменить заявку ").append(is)
+            .append("------------ 3 - удалить заявку ").append(is)
+            .append("------------ 4 - получить заявку по ID ").append(is)
+            .append("------------ 5 - получить все заявки по имени ").append(is)
+            .append("------------ 6 - Выход ");
 
 
 
@@ -58,6 +57,9 @@ public class StartUITest {
         System.out.println("execute after method");
     }
 
+    /**
+     *  Тест вывода всех заявок в консоль.
+     */
     @Test
     public void testShowItem() {
         Item items1 =
@@ -68,22 +70,63 @@ public class StartUITest {
         new StartUI(input, tracker).init();
         assertThat(new String(out.toByteArray()), is(
                 new StringBuilder()
-                        .append(menu)
+                        .append(menu).append(is)
                         .append(String.format("Id: %s Name: %s Description: %s", items1.getId(), items1.getName(), items1.getDecs()))
-                        .append(System.lineSeparator())
+                        .append(is)
                         .append(String.format("Id: %s Name: %s Description: %s", items2.getId(), items2.getName(), items2.getDecs()))
-                        .append(System.lineSeparator())
-                        .append(menu)
+                        .append(is)
+                        .append(menu).append(is)
+                        .toString()
         ));
     }
 
+    /**
+     *  Тест получения заявки по Id.
+     */
+    @Test
+    public void testFindByID() {
+        Item items =
+                tracker.add(new Item("test name1", "desc2", this.time()));
+        Input input = new StubInput(new String[]{"4", items.getId(), "6"});
+        new StartUI(input, tracker).init();
+        assertThat(new String(out.toByteArray()), is(
+                new StringBuilder()
+                        .append(menu).append(is)
+                        .append("------------ Поиск по ID ------------").append(is)
+                        .append(String.format("Id: %s Name: %s Description: %s", items.getId(), items.getName(), items.getDecs()))
+                        .append(is)
+                        .append(menu).append(is)
+                        .toString()
+        ));
+    }
+
+    /**
+     *  Тест получения заявки по имени.
+     */
+    @Test
+    public void testFindByName() {
+        Item items =
+                tracker.add(new Item("test name1", "desc2", this.time()));
+        Input input = new StubInput(new String[]{"5", items.getName(), "6"});
+        new StartUI(input, tracker).init();
+        assertThat(new String(out.toByteArray()), is(
+                new StringBuilder()
+                        .append(menu).append(is)
+                        .append("------------ Поиск заявки по имени ------------").append(is)
+                        .append(String.format("Id: %s Name: %s Description: %s", items.getId(), items.getName(), items.getDecs()))
+                        .append(is)
+                        .append(menu).append(is)
+                        .toString()
+        ));
+    }
+    /** Тест создания новой заявки. */
     @Test
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
         Input input = new StubInput(new String[]{"0", "test name", "desc", "6"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
         assertThat(tracker.findAll()[0].getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
     }
-
+    /** Тест изменения существующей заявки. */
     @Test
     public void whenUpdateThenTrackerHasUpdatedValue() {
         Item item = tracker.add(new Item("test name", "desc", this.time()));
@@ -92,6 +135,9 @@ public class StartUITest {
         assertThat(tracker.findById(item.getId()).getName(), is("test replace"));
     }
 
+    /**
+     *  Тест удаления существующей заявки.
+     */
     @Test
     public void testDeleteItemStartUI() {
         Item itemDelet = tracker.add(new Item("test name1", "desc1", this.time()));

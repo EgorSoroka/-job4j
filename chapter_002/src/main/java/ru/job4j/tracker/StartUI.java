@@ -108,7 +108,7 @@ public class StartUI {
     /**
      * Метод выводит список всех заявок.
      */
-    private void showItem() {
+    private void showItem() {  // тест написан.
         for (Item items : this.tracker.findAll()) {
             System.out.println(
                     String.format("Id: %s Name: %s Description: %s", items.getId(), items.getName(), items.getDecs()));
@@ -149,12 +149,12 @@ public class StartUI {
     /**
      * Метод ищет заявку по ID.
      */
-    private void findByID() {
+    private void findByID() { // тест написан.
         System.out.println("------------ Поиск по ID ------------");
         String id = this.input.ask("------------ Введите ID заявки ------------");
         Item found = this.tracker.findById(id);
         if (found != null) {
-            System.out.println(String.format("Id: %s Имя: %s Описание: %s",
+            System.out.println(String.format("Id: %s Name: %s Description: %s",
                     found.getId(), found.getName(), found.getDecs()));
         } else {
             System.out.println("------------ Нет заявки с таким ID ------------");
@@ -164,7 +164,7 @@ public class StartUI {
     /**
      * Метод ищет заявку по имени.
      */
-    private void findByName() {
+    private void findByName() { // тест написан
         System.out.println("------------ Поиск заявки по имени ------------");
         String name = this.input.ask("------------ Введите имя заявки ------------");
         Item[] items = this.tracker.findByName(name);
@@ -183,7 +183,7 @@ public class StartUI {
      * Метод отображает меню.
      */
     private void showMenu() {
-        System.out.print("------------ Меню ------------");
+        System.out.println("------------ Меню ------------");
         System.out.println("------------ 0 - создать новую заявку ");
         System.out.println("------------ 1 - показать все заявки ");
         System.out.println("------------ 2 - изменить заявку ");
@@ -196,7 +196,7 @@ public class StartUI {
     /**
      * Запускт программы.
      *
-     * @param args
+     * @param args start
      */
     public static void main(String[] args) {
         new StartUI(new ConsoleInput(), new Tracker()).init();
