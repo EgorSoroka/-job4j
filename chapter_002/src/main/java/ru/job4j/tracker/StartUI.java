@@ -183,14 +183,14 @@ public class StartUI {
      * Метод отображает меню.
      */
     private void showMenu() {
-        System.out.println("------------ Меню ------------");
-        System.out.println("------------ 0 - создать новую заявку");
-        System.out.println("------------ 1 - показать все заявки");
-        System.out.println("------------ 2 - изменить заявку");
-        System.out.println("------------ 3 - удалить заявку");
-        System.out.println("------------ 4 - получить заявку по ID");
-        System.out.println("------------ 5 - получить все заявки по имени");
-        System.out.println("------------ 6 - Выход");
+        System.out.print("------------ Меню ------------");
+        System.out.println("------------ 0 - создать новую заявку ");
+        System.out.println("------------ 1 - показать все заявки ");
+        System.out.println("------------ 2 - изменить заявку ");
+        System.out.println("------------ 3 - удалить заявку ");
+        System.out.println("------------ 4 - получить заявку по ID ");
+        System.out.println("------------ 5 - получить все заявки по имени ");
+        System.out.println("------------ 6 - Выход ");
     }
 
     /**

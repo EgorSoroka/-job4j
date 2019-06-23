@@ -5,6 +5,7 @@ import org.junit.After;
 import org.junit.Before;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
 import java.util.StringJoiner;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -27,6 +28,24 @@ public class StartUITest {
         return System.currentTimeMillis();
     }
 
+    /**
+     * Меню
+     */
+    private final StringBuilder menu = new StringBuilder()
+            .append("------------ Меню ------------" + "\n")
+            .append("------------ 0 - создать новую заявку " + "\n")
+            .append("------------ 1 - показать все заявки " + "\n")
+            .append("------------ 2 - изменить заявку " + "\n")
+            .append("------------ 3 - удалить заявку " + "\n")
+            .append("------------ 4 - получить заявку по ID " + "\n")
+            .append("------------ 5 - получить все заявки по имени " + "\n")
+            .append("------------ 6 - Выход " + "\n");
+
+
+
+
+
+
     @Before
     public void loadOutput() {
         System.out.println("execute before method");
@@ -41,16 +60,20 @@ public class StartUITest {
 
     @Test
     public void testShowItem() {
-        Item[] items = {
-                tracker.add(new Item("test name2", "desc2", this.time())),
-                tracker.add(new Item("test name3", "desc3", this.time()))};
+        Item items1 =
+                tracker.add(new Item("test name1", "desc2", this.time()));
+        Item items2 =
+                tracker.add(new Item("test name2", "desc2", this.time()));
         Input input = new StubInput(new String[]{"1", "6"});
         new StartUI(input, tracker).init();
         assertThat(new String(out.toByteArray()), is(
                 new StringBuilder()
-                .append("Id:  Name: %s Description: %s")
-                .toString()
-
+                        .append(menu)
+                        .append(String.format("Id: %s Name: %s Description: %s", items1.getId(), items1.getName(), items1.getDecs()))
+                        .append(System.lineSeparator())
+                        .append(String.format("Id: %s Name: %s Description: %s", items2.getId(), items2.getName(), items2.getDecs()))
+                        .append(System.lineSeparator())
+                        .append(menu)
         ));
     }
 
