@@ -25,7 +25,6 @@ public class StartUITest {
     private long time() {
         return System.currentTimeMillis();
     }
-
     /**
      * Меню
      */
@@ -40,11 +39,6 @@ public class StartUITest {
             .append("------------ 5 - получить все заявки по имени ").append(is)
             .append("------------ 6 - Выход ");
 
-
-
-
-
-
     @Before
     public void loadOutput() {
         System.out.println("execute before method");
@@ -56,7 +50,6 @@ public class StartUITest {
         System.setOut(this.stdout);
         System.out.println("execute after method");
     }
-
     /**
      *  Тест вывода всех заявок в консоль.
      */
@@ -79,7 +72,6 @@ public class StartUITest {
                         .toString()
         ));
     }
-
     /**
      *  Тест получения заявки по Id.
      */
@@ -99,7 +91,6 @@ public class StartUITest {
                         .toString()
         ));
     }
-
     /**
      *  Тест получения заявки по имени.
      */
@@ -134,7 +125,6 @@ public class StartUITest {
         new StartUI(input, tracker).init();
         assertThat(tracker.findById(item.getId()).getName(), is("test replace"));
     }
-
     /**
      *  Тест удаления существующей заявки.
      */
