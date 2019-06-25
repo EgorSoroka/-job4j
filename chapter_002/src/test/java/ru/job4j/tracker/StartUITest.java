@@ -31,13 +31,13 @@ public class StartUITest {
     private final String is = System.lineSeparator();
     private final StringBuilder menu = new StringBuilder()
             .append("------------ Меню ------------").append(is)
-            .append("------------ 0 - создать новую заявку ").append(is)
-            .append("------------ 1 - показать все заявки ").append(is)
-            .append("------------ 2 - изменить заявку ").append(is)
-            .append("------------ 3 - удалить заявку ").append(is)
-            .append("------------ 4 - получить заявку по ID ").append(is)
-            .append("------------ 5 - получить все заявки по имени ").append(is)
-            .append("------------ 6 - Выход ");
+            .append(String.format("%s %s", 0, " Дабовить новую заявку ")).append(is)
+            .append(String.format("%s %s", 1, " Показать все заявки ")).append(is)
+            .append(String.format("%s %s", 2, " Изменить заявку ")).append(is)
+            .append(String.format("%s %s", 3, " Удалить заявку ")).append(is)
+            .append(String.format("%s %s", 4, " Получить заявку по ID ")).append(is)
+            .append(String.format("%s %s", 5, " Поиск заявок по имени ")).append(is)
+            .append(String.format("%s %s", 6, " Выйти из программы "));
 
     @Before
     public void loadOutput() {

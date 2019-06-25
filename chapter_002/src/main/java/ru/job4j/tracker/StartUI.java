@@ -9,40 +9,7 @@ package ru.job4j.tracker;
  */
 
 public class StartUI {
-    /**
-     * Константа меню для добавления новой заявки.
-     */
-    private static final String ADD = "0";
-
-    /**
-     * Константа для отображения всех заявок.
-     */
-    private static final String SHOW = "1";
-
-    /**
-     * Константа для редактирования заявки.
-     */
-    private static final String EDIT = "2";
-
-    /**
-     * Константа для удаления заявки.
-     */
-    private static final String DELETE = "3";
-
-    /**
-     * Константа для полученя заявки по ID.
-     */
-    private static final String FIND_BY_ID = "4";
-
-    /**
-     * Константа для получения имени заявки.
-     */
-    private static final String FIND_NAME = "5";
-
-    /**
-     * Константа для выхода из цикла.
-     */
-    private static final String EXIT = "6";
+    private boolean work = true;
 
     /**
      * Получение данных от пользователя.
@@ -69,42 +36,20 @@ public class StartUI {
      * Основой цикл программы.
      */
     public void init() {
-        boolean exit = false;
-        while (!exit) {
-            this.showMenu();
-            String answer = this.input.ask("Введите пункт меню : ");
-            if (ADD.equals(answer)) {
-                this.createItem();
-            } else if (SHOW.equals(answer)) {
-                this.showItem();
-            } else if (EDIT.equals(answer)) {
-                this.editItem();
-            } else if (DELETE.equals(answer)) {
-                this.deleteItem();
-            } else if (FIND_BY_ID.equals(answer)) {
-                this.findByID();
-            } else if (FIND_NAME.equals(answer)) {
-                this.findByName();
-            } else if (StartUI.EXIT.equals(answer)) {
-                exit = true;
-            }
-        }
+        MenuTracker menu = new MenuTracker(this.input, this.tracker);
+        menu.fillActions(this);
+        do {
+            menu.show();
+            menu.select(Integer.valueOf(input.ask(" Выберете пункт меню ")));
+        } while (!"6".equals(this.input.ask("Выйти??(6): ")));
     }
 
     /**
-     * Метод отображает меню.
+     * отсечка для выхода из программы.
      */
-    private void showMenu() {
-        System.out.println("------------ Меню ------------");
-        System.out.println("------------ 0 - создать новую заявку ");
-        System.out.println("------------ 1 - показать все заявки ");
-        System.out.println("------------ 2 - изменить заявку ");
-        System.out.println("------------ 3 - удалить заявку ");
-        System.out.println("------------ 4 - получить заявку по ID ");
-        System.out.println("------------ 5 - получить все заявки по имени ");
-        System.out.println("------------ 6 - Выход ");
+    public void stop() {
+        this.work = false;
     }
-
     /**
      * Запускт программы.
      *

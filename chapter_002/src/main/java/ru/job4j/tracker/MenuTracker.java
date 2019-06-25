@@ -12,7 +12,7 @@ public class MenuTracker {
     /**
      * @param хранит ссылку на массив типа UserAction.
      */
-    private UserAction[] actions = new UserAction[5];
+    private UserAction[] actions = new UserAction[7];
 
     /**
      * Конструктор.
@@ -37,14 +37,14 @@ public class MenuTracker {
     /**
      * Метод заполняет массив.
      */
-    public void fillActions() {
+    public void fillActions(StartUI ui) {
         this.actions[0] = new AddItem();
         this.actions[1] = new ShowItem();
         this.actions[2] = new EditItem();
         this.actions[3] = new DeleteItem();
         this.actions[4] = new FindById();
         this.actions[5] = new FindByName();
-        this.actions[6] = new ExitProgram(6, "Exit Program"));
+        this.actions[6] = new ExitProgram(ui);
     }
 
     /**
@@ -70,7 +70,7 @@ public class MenuTracker {
     /**
      * Класс реализует создание новой заявки.
      */
-    public class AddItem implements UserAction {
+    private class AddItem implements UserAction {
         @Override
         public int key() {
             return 0;
@@ -89,14 +89,14 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return " Создание новой заявки. ";
+            return String.format("%s %s", this.key(), " Дабовить новую заявку ");
         }
     }
 
     /**
      * Класс отображает все заявки.
      */
-    public class ShowItem implements UserAction {
+    private class ShowItem implements UserAction {
         @Override
         public int key() {
             return 1;
@@ -112,14 +112,14 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return " Показать все заявки. ";
+            return String.format("%s %s", this.key(), " Показать все заявки ");
         }
     }
 
     /**
      * Класс реализует редактирование заявки.
      */
-    public class EditItem implements UserAction{
+    private class EditItem implements UserAction{
         @Override
         public int key() {
             return 2;
@@ -143,14 +143,14 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return " Изменяет заявку. ";
+            return String.format("%s %s", this.key(), " Изменить заявку ");
         }
     }
 
     /**
      * Класс реализует удаление заявки.
      */
-    public class DeleteItem implements UserAction{
+    private class DeleteItem implements UserAction{
         @Override
         public int key() {
             return 3;
@@ -169,14 +169,14 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return " Удаляет заявку. ";
+            return String.format("%s %s", this.key(), " Удалить заявку ");
         }
     }
 
     /**
      * Класс реализует поиск заявки по ID.
      */
-    public class FindById implements UserAction{
+    private class FindById implements UserAction{
         @Override
         public int key() {
             return 4;
@@ -197,14 +197,14 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return " Получает заявку по ID. ";
+            return String.format("%s %s", this.key(), " Получить заявку по ID ");
         }
     }
 
     /**
      * Класс реализует поиск всех заявок по имени.
      */
-    public class FindByName implements UserAction{
+    private class FindByName implements UserAction{
         @Override
         public int key() {
             return 5;
@@ -227,7 +227,33 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return " Получение заявок по имени. ";
+            return String.format("%s %s", this.key(), " Поиск заявок по имени ");
+        }
+    }
+
+    /**
+     *  Выход из программы.
+     */
+    private class ExitProgram implements UserAction{
+        private final StartUI ui;
+
+        ExitProgram(StartUI ui) {
+            this.ui = ui;
+        }
+        @Override
+        public int key() {
+            return 6;
+        }
+
+        @Override
+        public void execute(Input input, Tracker tracker) {
+                System.out.println(" Выход из программы ");
+                this.ui.stop();
+        }
+
+        @Override
+        public String info() {
+            return String.format("%s %s", this.key(), " Выйти из программы ");
         }
     }
 
