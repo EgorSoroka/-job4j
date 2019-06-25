@@ -30,7 +30,6 @@ public class StartUITest {
      */
     private final String is = System.lineSeparator();
     private final StringBuilder menu = new StringBuilder()
-            .append("------------ Меню ------------").append(is)
             .append(String.format("%s %s", 0, " Дабовить новую заявку ")).append(is)
             .append(String.format("%s %s", 1, " Показать все заявки ")).append(is)
             .append(String.format("%s %s", 2, " Изменить заявку ")).append(is)
@@ -68,7 +67,6 @@ public class StartUITest {
                         .append(is)
                         .append(String.format("Id: %s Name: %s Description: %s", items2.getId(), items2.getName(), items2.getDecs()))
                         .append(is)
-                        .append(menu).append(is)
                         .toString()
         ));
     }
@@ -87,7 +85,6 @@ public class StartUITest {
                         .append("------------ Поиск по ID ------------").append(is)
                         .append(String.format("Id: %s Name: %s Description: %s", items.getId(), items.getName(), items.getDecs()))
                         .append(is)
-                        .append(menu).append(is)
                         .toString()
         ));
     }
@@ -106,7 +103,6 @@ public class StartUITest {
                         .append("------------ Поиск заявки по имени ------------").append(is)
                         .append(String.format("Id: %s Name: %s Description: %s", items.getId(), items.getName(), items.getDecs()))
                         .append(is)
-                        .append(menu).append(is)
                         .toString()
         ));
     }
