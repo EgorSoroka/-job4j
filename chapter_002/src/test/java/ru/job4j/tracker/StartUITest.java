@@ -82,7 +82,7 @@ public class StartUITest {
         assertThat(new String(out.toByteArray()), is(
                 new StringBuilder()
                         .append(menu).append(is)
-                        .append("------------ Поиск по ID ------------").append(is)
+                        .append(" Поиск по ID ").append(is)
                         .append(String.format("Id: %s Name: %s Description: %s", items.getId(), items.getName(), items.getDecs()))
                         .append(is)
                         .toString()
@@ -100,7 +100,7 @@ public class StartUITest {
         assertThat(new String(out.toByteArray()), is(
                 new StringBuilder()
                         .append(menu).append(is)
-                        .append("------------ Поиск заявки по имени ------------").append(is)
+                        .append(" Поиск заявки по имени ").append(is)
                         .append(String.format("Id: %s Name: %s Description: %s", items.getId(), items.getName(), items.getDecs()))
                         .append(is)
                         .toString()
