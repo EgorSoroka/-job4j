@@ -37,11 +37,15 @@ public class StartUI {
      */
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
+        int[] range = new int[7];
         menu.fillActions(this);
+        for (int i = 0; i < menu.getActionsLentgh(); i++) {
+            range[i] = i;
+        }
         do {
             menu.show();
-            menu.select(Integer.valueOf(input.ask(" Выберете пункт меню ")));
-        } while (!"6".equals(this.input.ask("Выйти??(6): ")));
+            menu.select(input.ask(" Выберете пункт меню: ", range));
+        } while (!"y".equals(this.input.ask("Выйти??(y): ")));
     }
 
     /**
@@ -56,6 +60,6 @@ public class StartUI {
      * @param args start
      */
     public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(), new Tracker()).init();
     }
 }
