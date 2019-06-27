@@ -1,5 +1,13 @@
 package ru.job4j.tracker;
 
+/**
+ *
+ *
+ * @author Egor Soroka ( https://vk.com/id428714363)
+ * @version 1.0
+ * @since 27.06.2019
+ */
+
 public class StubInput implements Input {
     /**
      * Это поле содержит последовательность ответов пользователя.
@@ -35,6 +43,12 @@ public class StubInput implements Input {
         return this.value[this.position++];
     }
 
+    /**
+     *
+     * @param question вопрос к пользователю.
+     * @param range номер меню.
+     * @return ключ меню.
+     */
     @Override
     public int ask(String question, int[] range) {
         int key = Integer.valueOf(this.ask(question));
