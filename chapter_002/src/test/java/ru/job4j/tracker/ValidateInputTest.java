@@ -32,6 +32,9 @@ public class ValidateInputTest {
         System.setOut(this.out);
     }
 
+    /**
+     *  Тест NumberFormatException
+     */
     @Test
     public void whenInvalidInput() {
         ValidateInput input = new ValidateInput(
@@ -42,6 +45,25 @@ public class ValidateInputTest {
                 this.mem.toString(),
                 is(
                         String.format("Please enter validate data again.%n")
+
+                )
+        );
+    }
+
+    /**
+     * Тест MenuOutException
+     */
+    @Test
+    public void whenInvalidInput2() {
+        ValidateInput input = new ValidateInput(
+                new StubInput(new String[] {"10", "1"})
+        );
+        input.ask("Enter", new int[] {1});
+        assertThat(
+                this.mem.toString(),
+                is(
+                        String.format("Please select key from menu.%n")
+
                 )
         );
     }
