@@ -61,8 +61,8 @@ public class StubInput implements Input {
         }
         if (!exist) {
             throw new MenuOutException(" Запрос вне диапазона меню ");
-        } else {
-            return key;
         }
+            return key;
+
     }
 }
