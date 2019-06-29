@@ -13,6 +13,10 @@ public class MenuTracker {
      * Хранит ссылку на массив типа UserAction.
      */
     private UserAction[] actions = new UserAction[7];
+    /**
+     *  Позиция элемента в массиве меню.
+     */
+
 
     /**
      * Конструктор.
@@ -38,14 +42,16 @@ public class MenuTracker {
      * Метод заполняет массив.
      */
     public void fillActions(StartUI ui) {
-        this.actions[0] = new AddItem();
-        this.actions[1] = new ShowItem();
-        this.actions[2] = new EditItem();
-        this.actions[3] = new DeleteItem();
-        this.actions[4] = new FindById();
-        this.actions[5] = new FindByName();
-        this.actions[6] = new ExitProgram(ui);
+        this.actions[0] = new AddItem(0,  " Дабовить новую заявку ");
+        this.actions[1] = new ShowItem(1, " Показать все заявки ");
+        this.actions[2] = new EditItem(2,  " Изменить заявку ");
+        this.actions[3] = new DeleteItem(3, " Удалить заявку ");
+        this.actions[4] = new FindById(4, " Получить заявку по ID ");
+        this.actions[5] = new FindByName(5, " Поиск заявок по имени ");
+        this.actions[6] = new ExitProgram(ui, 6, " Выйти из программы ");
     }
+
+
 
     /**
      * Метод в зависимости от указанного ключа, выполняет соотвествующие действие.
@@ -70,11 +76,10 @@ public class MenuTracker {
     /**
      * Класс реализует создание новой заявки.
      */
-    private class AddItem implements UserAction {
-        @Override
-        public int key() {
-            return 0;
-        }
+    private class AddItem extends BaseAction {
+       public  AddItem(int key, String name) {
+           super(key, name);
+       }
 
         @Override
         public void execute(Input input, Tracker tracker) {
@@ -87,20 +92,15 @@ public class MenuTracker {
             System.out.println(" Новая заявка с getId : " + item.getId());
         }
 
-        @Override
-        public String info() {
-            return String.format("%s %s", this.key(), " Дабовить новую заявку ");
-        }
     }
 
     /**
      * Класс отображает все заявки.
      */
-    private class ShowItem implements UserAction {
-        @Override
-        public int key() {
-            return 1;
-        }
+    private class ShowItem extends BaseAction {
+       public ShowItem(int key, String name) {
+           super(key, name);
+       }
 
         @Override
         public void execute(Input input, Tracker tracker) {
@@ -109,20 +109,14 @@ public class MenuTracker {
                         String.format("Id: %s Name: %s Description: %s", items.getId(), items.getName(), items.getDecs()));
             }
         }
-
-        @Override
-        public String info() {
-            return String.format("%s %s", this.key(), " Показать все заявки ");
-        }
     }
 
     /**
      * Класс реализует редактирование заявки.
      */
-    private class EditItem implements UserAction {
-        @Override
-        public int key() {
-            return 2;
+    private class EditItem extends BaseAction {
+        public EditItem(int key, String name) {
+            super(key, name);
         }
 
         @Override
@@ -140,20 +134,14 @@ public class MenuTracker {
                 System.out.println("------------ Ваша заявка не найдена ------------");
             }
         }
-
-        @Override
-        public String info() {
-            return String.format("%s %s", this.key(), " Изменить заявку ");
-        }
     }
 
     /**
      * Класс реализует удаление заявки.
      */
-    private class DeleteItem implements UserAction {
-        @Override
-        public int key() {
-            return 3;
+    private class DeleteItem extends BaseAction {
+        public DeleteItem(int key, String name) {
+            super(key, name);
         }
 
         @Override
@@ -166,20 +154,14 @@ public class MenuTracker {
                 System.out.println(" Заявка с таким ID не найдена ");
             }
         }
-
-        @Override
-        public String info() {
-            return String.format("%s %s", this.key(), " Удалить заявку ");
-        }
     }
 
     /**
      * Класс реализует поиск заявки по ID.
      */
-    private class FindById implements UserAction {
-        @Override
-        public int key() {
-            return 4;
+    private class FindById extends BaseAction {
+        public FindById(int key, String name) {
+            super(key, name);
         }
 
         @Override
@@ -194,20 +176,14 @@ public class MenuTracker {
                 System.out.println(" Нет заявки с таким ID ");
             }
         }
-
-        @Override
-        public String info() {
-            return String.format("%s %s", this.key(), " Получить заявку по ID ");
-        }
     }
 
     /**
      * Класс реализует поиск всех заявок по имени.
      */
-    private class FindByName implements UserAction {
-        @Override
-        public int key() {
-            return 5;
+    private class FindByName extends BaseAction {
+        public FindByName(int key, String name) {
+            super(key, name);
         }
 
         @Override
@@ -224,25 +200,17 @@ public class MenuTracker {
                 System.out.println(" Заявок с таким именем не существует ");
             }
         }
-
-        @Override
-        public String info() {
-            return String.format("%s %s", this.key(), " Поиск заявок по имени ");
-        }
     }
 
     /**
      *  Выход из программы.
      */
-    private class ExitProgram implements UserAction {
+    private class ExitProgram extends BaseAction {
         private final StartUI ui;
 
-        ExitProgram(StartUI ui) {
+        public ExitProgram(StartUI ui, int key, String name) {
+            super(key, name);
             this.ui = ui;
-        }
-        @Override
-        public int key() {
-            return 6;
         }
 
         @Override
@@ -250,11 +218,5 @@ public class MenuTracker {
             System.out.println(" Выход из программы ");
             this.ui.stop();
         }
-
-        @Override
-        public String info() {
-            return String.format("%s %s", this.key(), " Выйти из программы ");
-        }
     }
-
 }
