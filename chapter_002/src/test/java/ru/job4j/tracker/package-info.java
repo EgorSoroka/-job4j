@@ -1,6 +1,6 @@
 /**
  *  Package for Test Tracker program.
- *  Package for TrackerTest, StartUITest class.
+ *  Package for TrackerTest, StartUITest, SingleTrackerTest  class.
  *
  * @author Egor Soroka ( https://vk.com/id428714363)
  * @version 1.0
