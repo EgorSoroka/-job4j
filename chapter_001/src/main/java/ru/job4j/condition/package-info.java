@@ -1,5 +1,5 @@
 /**
- * Package for Point, Max, Triangle, MultiMax.
+ * Package for Point, Max, Triangle, MultiMax, SqArea.
  *
  * @author Egor Soroka ( https://vk.com/id428714363)
  * @version 1.0
